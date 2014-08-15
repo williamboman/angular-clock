@@ -1,5 +1,5 @@
 /*
-	angular-clock v
+	angular-clock v0.0.1-alpha.1
 	https://github.com/williamboman/angular-clock
 
 	(c) 2014 William Boman <william@redwill.se> (http://william.redwill.se)
