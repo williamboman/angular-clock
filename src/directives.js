@@ -14,7 +14,11 @@
           link: function (scope, element, attrs) {
             _tick();
 
-            scope.ticker = setInterval(_tick, 1000);
+            // Start the ticking exactly when the next second starts.
+            // This is to sync the update of all liveTime elements throughout the DOM.
+            setTimeout(function () {
+              setInterval(_tick, 1000);
+            }, 1000 - moment().format('SSS'));
 
             function _tick() {
               element.text(moment().locale(attrs.timeLocale || _locale).format(attrs.timeFormat || _format));
