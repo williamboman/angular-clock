@@ -62,6 +62,7 @@
             // Start the ticking exactly when the next second starts.
             // This is to sync the update of all liveTime elements throughout the DOM.
             setTimeout(function () {
+              _tick();
               setInterval(_tick, 1000);
             }, 1000 - moment().format('SSS'));
 
