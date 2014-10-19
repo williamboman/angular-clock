@@ -8,7 +8,7 @@
   "main": "dist/angular-clock.js",
   "dependencies": {
     "moment": "~2.8.1",
-    "angular": "~1.2.22"
+    "angular": "1.*"
   },
   "ignore": [
     "**/.*",
