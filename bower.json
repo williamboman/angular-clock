@@ -7,8 +7,8 @@
   "license": "MIT",
   "main": "dist/angular-clock.js",
   "dependencies": {
-    "moment": "~2.8.1",
-    "angular": "1.*"
+    "moment": "~2",
+    "angular": "~1"
   },
   "ignore": [
     "**/.*",
