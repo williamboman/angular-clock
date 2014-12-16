@@ -10,6 +10,7 @@ module.exports = function (grunt) {
     meta: {
       dist: 'dist',
       src: 'src',
+      tmp: '.tmp',
       pkg: grunt.file.readJSON('package.json'),
       banner: [
         '/*',
@@ -55,8 +56,20 @@ module.exports = function (grunt) {
       }
     },
     concat: {
+      prepare: {
+        options: {
+          process: function (src) {
+            // Format & remove all 'use strict'; statements.
+            return '\t' + src
+                    .replace(/(^|\n)[ \t]*('use strict'|"use strict");?\s*/g, '$1')
+                    .replace(/\n/g, '\n\t');
+          }
+        },
+        src: ['<%= meta.src %>/**/*.js'],
+        dest: '<%= meta.tmp %>/angular-clock.js'
+      },
       dist: {
-        src: ['<%= meta.src %>/constants.js', '<%= meta.src %>/services.js', '<%= meta.src %>/directives.js', '<%= meta.src %>/bootstrap.js'],
+        src: ['./intro', '<%= meta.tmp %>/angular-clock.js', './outro'],
         dest: '<%= meta.dist %>/angular-clock.js'
       }
     },
@@ -75,6 +88,7 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'jshint:all',
     'clean:dist',
+    'concat:prepare',
     'concat:dist',
     'uglify:dist',
     'usebanner:dist'

@@ -1,7 +1,5 @@
-(function (angular, moment) {
-  'use strict';
+'use strict';
 
-  angular.module('wb.angularClock.constants', [])
+angular.module('wb.angularClock.constants', [])
 
-    .constant('moment', moment);
-})(window.angular, window.moment);
+  .constant('moment', window.moment);
