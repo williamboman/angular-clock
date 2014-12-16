@@ -11,7 +11,14 @@ module.exports = function (grunt) {
       dist: 'dist',
       src: 'src',
       pkg: grunt.file.readJSON('package.json'),
-      banner: '/*\n\t<%= meta.pkg.name %> v<%= meta.pkg.version %>\n\t<%= meta.pkg.homepage %>\n\n\t(c) <%= grunt.template.today("yyyy") %> <%= meta.pkg.author.name %> <<%= meta.pkg.author.email %>> (<%= meta.pkg.author.url %>)\n*/\n'
+      banner: [
+        '/*',
+        ' * <%= meta.pkg.name %> v<%= meta.pkg.version %>',
+        ' * <%= meta.pkg.homepage %>',
+        ' * ',
+        ' * (c) <%= grunt.template.today("yyyy") %> <%= meta.pkg.author.name %> <<%= meta.pkg.author.email %>> (<%= meta.pkg.author.url %>)',
+        '*/',
+        ''].join('\n')
     },
     jshint: {
       options: {
