@@ -4,6 +4,7 @@
 
 ## Dependencies
 - [angular](https://github.com/angular/angular.js) ~1
+- [moment](https://github.com/moment/moment/) ~2
 
 ## Install
 ### Bower
